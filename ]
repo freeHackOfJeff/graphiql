@@ -1,0 +1,32 @@
+chore: tweak ci for cypress
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Tue Jan 28 15:09:12 2020 -0600
+#
+# On branch symbol-support
+# Your branch is up to date with 'origin/symbol-support'.
+#
+# Changes to be committed:
+#	modified:   .github/workflows/ci.yml
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 6cad64f..3831a0c 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -9,9 +9,10 @@ jobs:
+       - uses: bahmutov/npm-install@v1
+       - run: yarn ci
+   e2e:
+-    runs-on: ubuntu-latest
++    runs-on: ubuntu-16.04
+     name: cypress
+     steps:
+       - uses: actions/checkout@v1
+       - uses: bahmutov/npm-install@v1
++      - uses: cypress-io/github-action@v1
+       - run: yarn ci-e2e
